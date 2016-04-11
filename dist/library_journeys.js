@@ -2,12 +2,13 @@ angular.module('libraryJourneys', ['libraryJourneys.Api']);
 
 angular.module('libraryJourneys.Api', []);
 
-angular.module('libraryJourneys.Api').factory('LibraryJourneysApi', function(ApiAuthService, Config) {
+angular.module('libraryJourneys.Api').factory('LibraryJourneysApi', function(ApiAuthService, Config, ContactService) {
 
   var ApiWrapper = function(){};
 
   ApiWrapper.prototype.Auth = ApiAuthService;
   ApiWrapper.prototype.Config = Config;
+  ApiWrapper.prototype.Contact = ContactService;
 
   return new ApiWrapper();
 
@@ -57,5 +58,28 @@ angular.module('libraryJourneys.Api').factory('Config', function() {
   };
 
   return ConfigService;
+
+});
+
+angular.module('libraryJourneys.Api').factory('ContactService', function(Config, $http) {
+
+  var ContactService = function(){};
+
+  ContactService.prototype.sendContactRequest = function(subject, query) {
+
+    params = {
+      "contact_request": {
+        "subject": subject,
+        "query": query
+      }
+    };
+
+    return $http.post(Config.ApiUrl + '/app/contact_requests', params).then(function(response) {
+      return response.data;
+    });
+
+  };
+
+  return new ContactService();
 
 });
