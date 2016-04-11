@@ -2,13 +2,17 @@ angular.module('libraryJourneys', ['libraryJourneys.Api']);
 
 angular.module('libraryJourneys.Api', []);
 
-angular.module('libraryJourneys.Api').factory('LibraryJourneysApi', function(ApiAuthService, Config, ContactService) {
+angular.module('libraryJourneys.Api').factory('LibraryJourneysApi', function(ApiAuthService,
+                                                                             Config,
+                                                                             ContactService,
+                                                                             ApiDeviceService) {
 
   var ApiWrapper = function(){};
 
   ApiWrapper.prototype.Auth = ApiAuthService;
   ApiWrapper.prototype.Config = Config;
   ApiWrapper.prototype.Contact = ContactService;
+  ApiWrapper.prototype.Device = ApiDeviceService;
 
   return new ApiWrapper();
 
@@ -81,5 +85,31 @@ angular.module('libraryJourneys.Api').factory('ContactService', function(Config,
   };
 
   return new ContactService();
+
+});
+
+angular.module('libraryJourneys.Api').factory('ApiDeviceService', function(Config, $http) {
+
+  var DeviceService = function(){};
+
+  DeviceService.prototype.sendDeviceDetails = function(uuid, cordova_version, model, platform, version) {
+
+    params = {
+      "device": {
+        "uuid": uuid,
+        "cordova": cordova_version,
+        "model": model,
+        "platform": platform,
+        "version": version
+      }
+    };
+
+    return $http.post(Config.ApiUrl + '/app/devices', params).then(function(response) {
+      return response.data;
+    });
+
+  };
+
+  return new DeviceService();
 
 });
