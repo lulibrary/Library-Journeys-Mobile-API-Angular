@@ -3,7 +3,8 @@ angular.module('libraryJourneys.Api', []);
 angular.module('libraryJourneys.Api').factory('LibraryJourneysApi', function(ApiAuthService,
                                                                              Config,
                                                                              ContactService,
-                                                                             ApiDeviceService) {
+                                                                             ApiDeviceService,
+                                                                             EventService) {
 
   var ApiWrapper = function(){};
 
@@ -11,6 +12,7 @@ angular.module('libraryJourneys.Api').factory('LibraryJourneysApi', function(Api
   ApiWrapper.prototype.Config = Config;
   ApiWrapper.prototype.Contact = ContactService;
   ApiWrapper.prototype.Device = ApiDeviceService;
+  ApiWrapper.prototype.Events = EventService;
 
   return new ApiWrapper();
 
