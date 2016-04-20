@@ -40,6 +40,25 @@ angular.module('libraryJourneys.Api').factory('EventService', function(Config, $
 
   };
 
+  EventService.prototype.beaconEvents = function (device_uuid, beacons, region) {
+
+    params = {
+      "beacon_events": {
+        "device": {
+          "uuid": device_uuid,
+          "timestamp": Date()
+        },
+        "beacons": beacons,
+        "region": region
+      }
+    };
+
+    return $http.post(Config.ApiUrl + '/app/events/location/beacon_events/multiple', params, { timeout: 1000 }).then(function(response) {
+      return response.data;
+    })
+
+  };
+
   return new EventService();
 
 });
