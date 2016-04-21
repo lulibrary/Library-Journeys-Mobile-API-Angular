@@ -63,6 +63,14 @@ angular.module('libraryJourneys.Api').factory('JourneyLogService', function(Conf
 
   };
 
+  JourneyLogService.prototype.allLogEntries = function() {
+
+    return $http.get(Config.ApiUrl + '/app/journey_log/entries').then(function(response) {
+      return response.data;
+    })
+
+  };
+
   return new JourneyLogService();
 
 });
