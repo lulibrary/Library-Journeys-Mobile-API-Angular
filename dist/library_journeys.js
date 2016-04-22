@@ -40,6 +40,22 @@ angular.module('libraryJourneys.Api').factory('ApiAuthService', function(Config,
     });
   };
 
+  ApiAuthService.prototype.signUp = function(email, password, password_confirmation) {
+
+    params = {
+      "participant": {
+        "email": email,
+        "password": password,
+        "password_confirmation": password_confirmation
+      }
+    };
+
+    return $http.post(Config.ApiUrl + '/app/participants/', params).then(function(response) {
+      return response.data;
+    });
+
+  };
+
   return new ApiAuthService();
 
 });
