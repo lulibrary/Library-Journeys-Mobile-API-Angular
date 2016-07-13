@@ -1,5 +1,21 @@
 {
+  "name": "@lulibary/angular-journeys-mobile",
+  "version": "0.1.0",
+  "description": "Angular wrapper around the Library Journeys Mobile API.",
+  "author": "Stephen Robinson <s.j.robinson1@lancaster.ac.uk>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lulibrary/Library-Journeys-Mobile-API-Angular"
+  },
+  "bugs": {
+    "url": "https://github.com/lulibrary/Library-Journeys-Mobile-API-Angular/issues"
+  },
   "devDependencies": {
-    "gulp-uglify": "^1.5.3"
+    "gulp": "^3.9.1",
+    "gulp-util": "^2.2.14",
+    "gulp-uglify": "^1.5.4",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2"
   }
 }
