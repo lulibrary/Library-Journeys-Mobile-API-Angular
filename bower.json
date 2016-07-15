@@ -1,0 +1,20 @@
+{
+  "name": "angular-journeys-mobile",
+  "description": "Angular wrapper around the Library Journeys Mobile API.",
+  "main": "dist/library-journeys.js",
+  "authors": [
+    "Stephen Robinson <s.j.robinson1@lancaster.ac.uk>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lulibrary/Library-Journeys-Mobile-API-Angular",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.3"
+  }
+}
