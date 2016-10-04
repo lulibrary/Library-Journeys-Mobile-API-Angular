@@ -55,6 +55,20 @@ angular.module('libraryJourneys.Api').factory('ApiAuthService', function(Config,
     });
 
   };
+  
+  ApiAuthService.prototype.forgotPassword = function(email) {
+  	
+	  params = {
+		  "participant": {
+			  "email": email
+		  }
+	  }
+	  
+	  return $http.post(Config.ApiUrl + '/auth/participants/password', params).then(function(response) {
+		  return response.data;
+	  });
+	
+  };
 
   return new ApiAuthService();
 
