@@ -1,6 +1,6 @@
 {
   "name": "angular-journeys-mobile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Angular wrapper around the Library Journeys Mobile API.",
   "author": "Stephen Robinson <s.j.robinson1@lancaster.ac.uk>",
   "license": "MIT",
